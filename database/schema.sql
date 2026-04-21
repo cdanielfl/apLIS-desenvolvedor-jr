@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS aplisdemo;
+USE aplisdemo;
+
+CREATE TABLE IF NOT EXISTS pacientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  data_nascimento DATE NOT NULL,
+  carteirinha VARCHAR(30) NOT NULL UNIQUE,
+  cpf CHAR(11) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS medicos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  crm VARCHAR(20) NOT NULL,
+  ufcrm CHAR(2) NOT NULL,
+  UNIQUE KEY uq_medicos_crm_uf (crm, ufcrm)
+);
